@@ -13,7 +13,7 @@ npm i eslint --save-dev
 Next, install `eslint-plugin-sort-sx-prop`:
 
 ```sh
-npm install eslint-plugin-sort-sx-prop --save-dev
+npm install @saswatb/eslint-plugin-sort-sx-prop --save-dev
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ Add `sort-sx-prop` to the plugins section of your `.eslintrc` configuration file
 
 ```json
 {
-  "plugins": ["sort-sx-prop"]
+  "plugins": ["@saswatb/eslint-plugin-sort-sx-prop"]
 }
 ```
 
@@ -31,7 +31,10 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
   "rules": {
-    "sort-sx-prop/sort-sx-prop": 2
+    "@saswatb/eslint-plugin-sort-sx-prop/sort-sx-prop": [
+      "error",
+      { "addWhitespace": true }
+    ]
   }
 }
 ```

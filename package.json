@@ -1,7 +1,11 @@
 {
   "name": "@saswatb/eslint-plugin-sort-sx-prop",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Sorts the sx prop from ui libraries like MUI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SaswatB/eslint-plugin-sort-sx-prop"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",

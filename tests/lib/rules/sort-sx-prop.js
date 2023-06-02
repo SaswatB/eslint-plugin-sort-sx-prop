@@ -28,12 +28,76 @@ ruleTester.run("sort-sx-prop", rule, {
       code: "<Box sx={{ customPropB: 0, customPropA: 0, borderColor: 'red', top: 0, paddingTop: 0, position: 'absolute' }} />",
       errors: [
         {
-          message: "The sx prop is not sorted in alphabetical order",
+          message: "The sx prop is not sorted",
           type: "JSXAttribute",
         },
       ],
       output:
         "<Box sx={{ position: 'absolute', top: 0, paddingTop: 0, borderColor: 'red', customPropA: 0, customPropB: 0 }} />",
+    },
+    {
+      code: `
+<Box
+  sx={{
+    customPropB: 0,
+    customPropA: 0,
+    borderColor: 'red',
+    top: 0,
+    paddingTop: 0,
+    position: 'absolute',
+  }}
+/>`,
+      errors: [
+        {
+          message: "The sx prop is not sorted",
+          type: "JSXAttribute",
+        },
+      ],
+      output: `
+<Box
+  sx={{
+    position: 'absolute',
+    top: 0,
+    paddingTop: 0,
+    borderColor: 'red',
+    customPropA: 0,
+    customPropB: 0,
+  }}
+/>`,
+    },
+    {
+      code: `
+<Box
+  sx={{
+    customPropB: 0,
+    customPropA: 0,
+    borderColor: 'red',
+    top: 0,
+    paddingTop: 0,
+    position: 'absolute',
+  }}
+/>`,
+      options: [{ addWhitespace: true }],
+      errors: [
+        {
+          message: "The sx prop is not sorted",
+          type: "JSXAttribute",
+        },
+      ],
+      output: `
+<Box
+  sx={{
+    position: 'absolute',
+    top: 0,
+
+    paddingTop: 0,
+
+    borderColor: 'red',
+
+    customPropA: 0,
+    customPropB: 0,
+  }}
+/>`,
     },
   ],
 });
